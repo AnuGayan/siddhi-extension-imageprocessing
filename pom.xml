@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>wso2</artifactId>
+        <groupId>org.wso2</groupId>
+        <version>5</version>
+    </parent>
+    <groupId>org.wso2.extension.execution.ip</groupId>
+    <artifactId>siddhi-execution-ip-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+
+    <modules>
+        <module>component</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>${opencv.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.siddhi</groupId>
+            <artifactId>siddhi-core</artifactId>
+            <version>${siddhi.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.wso2.carbon.maven</groupId>
+                    <artifactId>carbon-feature-plugin</artifactId>
+                    <version>${carbon.feature.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>clean install -Pdocumentation-deploy</preparationGoals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <siddhi.version>4.2.0</siddhi.version>
+        <opencv.version>3.4.2-0</opencv.version>
+        <log4j.version>1.2.17.wso2v1</log4j.version>
+        <xml.mapper.version>4.0.14</xml.mapper.version>
+        <carbon.feature.plugin.version>3.1.3</carbon.feature.plugin.version>
+        <mavan.findbugsplugin.exclude.file>findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
+        <mavan.checkstyle.suppression.file>checkstyle-suppressions.xml</mavan.checkstyle.suppression.file>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jacoco.maven.version>0.7.8</jacoco.maven.version>
+    </properties>
+    <scm>
+        <url>https://github.com/wso2-extensions/siddhi-execution-ip.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-execution-ip.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2-extensions/siddhi-execution-ip.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+</project>
